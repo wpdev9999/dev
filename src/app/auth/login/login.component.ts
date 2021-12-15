@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
     if(this.login.valid){
       this._snackBar.open('Done','Close');
       this.router.navigate(['/dashboard']);
+      localStorage.setItem('token','svsddbdsbdbdbb');
+      localStorage.setItem('userType','admin');
     }
   }
 

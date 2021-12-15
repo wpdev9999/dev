@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthModule } from './auth/auth.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 import { DefaultComponent } from './layouts/default/default.component';
 import { FullDashboardComponent } from './layouts/full-dashboard/full-dashboard.component';
 
@@ -10,15 +11,14 @@ const routes: Routes = [
     path: '',
     component: DefaultComponent,
     children: [{
-        path: '',
-        component: LoginComponent
-    }]
+        path: '', loadChildren: () =>  AuthModule}
+      ]
   },
   {
     path: '',
     component: FullDashboardComponent,
     children: [
-      { path: 'dashboard', component: DashboardComponent},
+      { path: 'dashboard', canActivate:[AuthGuard], loadChildren: () =>  DashboardModule},
     ]
     
   }

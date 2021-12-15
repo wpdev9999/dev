@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule} from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthRoutingModule } from './auth-routing.module';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     FormsModule,
     MatSnackBarModule,
-    MatButtonModule
-    
+    MatButtonModule,
+    AuthRoutingModule
   ]
 })
 export class AuthModule { }
