@@ -1,5 +1,5 @@
 <div class="signin-content">
-    <mat-card class="login-card">
+    <mat-card class="login-card mat-elevation-z9">
         <mat-card-title> Login</mat-card-title>
       <mat-card-content>
         <form [formGroup]="login" (ngSubmit)="onSubmit()">
@@ -15,7 +15,7 @@
           </mat-form-field>
           <mat-card-actions>
           <button mat-raised-button color="primary" type="submit">Login</button>
-          <button mat-raised-button color="infor" type="reset">Reset</button>
+          <button mat-raised-button color="warn" type="reset">Reset</button>
         </mat-card-actions>
         </form>
       </mat-card-content>

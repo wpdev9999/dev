@@ -5,9 +5,12 @@
     height: 100%;
     background-color: blueviolet;
     .login-card {
-        max-width: 400px;
+        max-width: 100%;
         margin-bottom: 8px;
-        
+        padding: 40px 60px; 
+        .mat-form-field {
+          display: block; 
+        }       
       }
 }
 example-form {
