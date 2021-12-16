@@ -17,17 +17,12 @@
           text-align: center;
           box-shadow: 0 4px 20px 0 rgba(0,0,0,.14),0 7px 10px -5px rgba(233,30,99,.4);
         }
+        .mat-card-actions{
+          margin: 0;
+        }
         .mat-form-field {
           display: block; 
+          margin: 15px 0;
         }       
       }
 }
-example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }

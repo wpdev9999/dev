@@ -1,26 +1,61 @@
 <div class="signin-content">
     <mat-card class="login-card mat-elevation-z9">
-        <mat-card-title> Login</mat-card-title>
+        <mat-card-title> Welcome  </mat-card-title>
       <mat-card-content>
-        <form [formGroup]="login" (ngSubmit)="onSubmit()">
-        
-          <mat-form-field class="full-width-input">
-            <input matInput placeholder="Username" formControlName="userName" required>
-            <mat-error *ngIf="f.userName.hasError('required')" >Username is required.</mat-error>
-          </mat-form-field>
-        
-          <mat-form-field class="full-width-input">
-            <input matInput type="password" placeholder="Password" formControlName="password" required>
-            <mat-error>Password is required.</mat-error>
-          </mat-form-field>
-          <mat-card-actions>
-          <button mat-raised-button color="primary" type="submit">Login</button>
-          <button mat-raised-button color="warn" type="reset">Reset</button>
-        </mat-card-actions>
-        </form>
+        <mat-tab-group >
+          <mat-tab label="Login">
+              <form [formGroup]="login" (ngSubmit)="onSubmit()">
+          
+                <mat-form-field class="full-width-input">
+                  <input matInput placeholder="Username" formControlName="userName" required>
+                  <mat-error *ngIf="f.userName.hasError('required')" >Username is required.</mat-error>
+                </mat-form-field>
+              
+                <mat-form-field class="full-width-input">
+                  <input matInput type="password" placeholder="Password" formControlName="password" required>
+                  <mat-error *ngIf="f.password.hasError('required')" >Password is required.</mat-error>
+                  <mat-error *ngIf="f.password.hasError('minlength')" >Password must be at least 6 characters.</mat-error>
+                </mat-form-field>
+                <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit">Login</button>
+                <button mat-raised-button color="warn" type="reset">Reset</button>
+              </mat-card-actions>
+              </form>
+             </mat-tab>
+             
+          <mat-tab label="Register"> 
+            
+            <form [formGroup]="register" (ngSubmit)="onRegister()">
+          
+              <mat-form-field class="full-width-input">
+                <input matInput placeholder="email" formControlName="email" required>
+                <mat-error *ngIf="r.email.hasError('required')" >Email is required.</mat-error>
+                <mat-error *ngIf="r.email.hasError('email')" >Enter valid Email is required.</mat-error>
+                <mat-error *ngIf="!r.email.hasError('email') && r.email.hasError('pattern')" >Pattern is not match for Email.</mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="full-width-input">
+                <input matInput placeholder="Username" formControlName="userName" required>
+                <mat-error *ngIf="r.userName.hasError('required')" >Username is required.</mat-error>
+              </mat-form-field>
+            
+              <mat-form-field class="full-width-input">
+                <input matInput type="password" placeholder="Password" formControlName="password" required>
+                <mat-error *ngIf="r.password.hasError('required')" >Password is required.</mat-error>
+                  <mat-error *ngIf="r.password.hasError('minlength')" >Password must be at least 6 characters.</mat-error>
+              </mat-form-field>
+              <mat-card-actions>
+              <button mat-raised-button color="primary" type="submit">Register</button>
+              <button mat-raised-button color="warn" type="reset">Reset</button>
+            </mat-card-actions>
+            </form>
+
+          </mat-tab>
+        </mat-tab-group>
+
+    
       </mat-card-content>
       <mat-card-actions>
-          <button mat-raised-button color="primary">New User?</button>
           <button mat-raised-button color="accent" routerLink="/forgot-password">Forgot Password?</button>
       </mat-card-actions>
     </mat-card>
