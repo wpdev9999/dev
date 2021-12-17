@@ -33,20 +33,39 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
   onLogin(){
     if(this.login.invalid){
       return;
     }
-      this._snackBar.open('Login successfully','Close');
-      this.router.navigate(['/dashboard']);
-      localStorage.setItem('token','svsddbdsbdbdbb');
-      localStorage.setItem('userType','admin');    
+
+    this._snackBar.open('Login successfully','Close');
+    
+    localStorage.setItem('token','svsddbdsbdbdbb');
+    localStorage.setItem('userType','admin'); 
+    
+    //Reset Form
+    this.login.reset()
+    Object.keys(this.login.controls).forEach(key => {
+      this.login.controls[key].setErrors(null);
+    });
+
+    this.router.navigate(['/dashboard']);
   }
 
   onRegister(){
+    this._snackBar.open('Register successfully','Close');
+    
+    localStorage.setItem('token','svsddbdsbdbdbb');
+    localStorage.setItem('userType','admin'); 
+    //Reset Form
     console.log('Register');
     this.register.reset();
-    //this.register.setErrors(null);
+    Object.keys(this.register.controls).forEach(key => {
+      this.register.controls[key].setErrors(null);
+    });
+
+    this.router.navigate(['/dashboard']);
   }
    
 
