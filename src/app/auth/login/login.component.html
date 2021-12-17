@@ -4,17 +4,17 @@
       <mat-card-content>
         <mat-tab-group >
           <mat-tab label="Login">
-              <form [formGroup]="login" (ngSubmit)="onSubmit()">
+              <form [formGroup]="login" (ngSubmit)="onLogin()">
           
                 <mat-form-field class="full-width-input">
                   <input matInput placeholder="Username" formControlName="userName" required>
-                  <mat-error *ngIf="f.userName.hasError('required')" >Username is required.</mat-error>
+                  <mat-error *ngIf="l.userName.hasError('required') && l.userName.touched" >Username is required.</mat-error>
                 </mat-form-field>
               
                 <mat-form-field class="full-width-input">
                   <input matInput type="password" placeholder="Password" formControlName="password" required>
-                  <mat-error *ngIf="f.password.hasError('required')" >Password is required.</mat-error>
-                  <mat-error *ngIf="f.password.hasError('minlength')" >Password must be at least 6 characters.</mat-error>
+                  <mat-error *ngIf="l.password.hasError('required') && l.password.touched" >Password is required.</mat-error>
+                  <mat-error *ngIf="l.password.hasError('minlength') && l.password.touched" >Password must be at least 6 characters.</mat-error>
                 </mat-form-field>
                 <mat-card-actions>
                 <button mat-raised-button color="primary" type="submit" [disabled]="!login.valid">Login</button>
@@ -29,20 +29,20 @@
           
               <mat-form-field class="full-width-input">
                 <input matInput placeholder="Email" formControlName="email" required>
-                <mat-error *ngIf="r.email.hasError('required')" >Email is required.</mat-error>
-                <mat-error *ngIf="r.email.hasError('email')" >Enter valid Email is required.</mat-error>
-                <mat-error *ngIf="!r.email.hasError('email') && r.email.hasError('pattern')" >Pattern is not match for Email.</mat-error>
+                <mat-error *ngIf="r.email.hasError('required') && r.email.touched" >Email is required.</mat-error>
+                <mat-error *ngIf="r.email.hasError('email') && r.email.touched" >Enter valid Email is required.</mat-error>
+                <mat-error *ngIf="!r.email.hasError('email') && r.email.hasError('pattern') && r.email.touched" >Pattern is not match for Email.</mat-error>
               </mat-form-field>
 
               <mat-form-field class="full-width-input">
                 <input matInput placeholder="Username" formControlName="userName" required>
-                <mat-error *ngIf="r.userName.hasError('required')" >Username is required.</mat-error>
+                <mat-error *ngIf="r.userName.hasError('required') && r.userName.touched" >Username is required.</mat-error>
               </mat-form-field>
             
               <mat-form-field class="full-width-input">
                 <input matInput type="password" placeholder="Password" formControlName="password" required>
-                <mat-error *ngIf="r.password.hasError('required')" >Password is required.</mat-error>
-                  <mat-error *ngIf="r.password.hasError('minlength')" >Password must be at least 6 characters.</mat-error>
+                <mat-error *ngIf="r.password.hasError('required') && r.password.touched" >Password is required.</mat-error>
+                  <mat-error *ngIf="r.password.hasError('minlength') && r.password.touched" >Password must be at least 6 characters.</mat-error>
               </mat-form-field>
               <mat-card-actions>
               <button mat-raised-button color="primary" type="submit" [disabled]="!register.valid">Register</button>

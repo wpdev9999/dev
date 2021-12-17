@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   login : FormGroup;
   register : FormGroup;
     
-  get f(): any { return this.login.controls; }
+  get l(): any { return this.login.controls; }
   get r(): any { return this.register.controls; }
    
     
@@ -33,13 +33,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    if(this.login.valid){
+  onLogin(){
+    if(this.login.invalid){
+      return;
+    }
       this._snackBar.open('Login successfully','Close');
       this.router.navigate(['/dashboard']);
       localStorage.setItem('token','svsddbdsbdbdbb');
-      localStorage.setItem('userType','admin');
-    }    
+      localStorage.setItem('userType','admin');    
   }
 
   onRegister(){
