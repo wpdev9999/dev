@@ -18,7 +18,7 @@
                 </mat-form-field>
                 <mat-card-actions>
                 <button mat-raised-button color="primary" type="submit" [disabled]="!login.valid">Login</button>
-                <button mat-raised-button color="warn" type="reset">Reset</button>
+                <button mat-raised-button color="warn" type="reset" [disabled]="!l.userName.touched && !l.password.touched">Reset</button>
               </mat-card-actions>
               </form>
              </mat-tab>
@@ -46,7 +46,7 @@
               </mat-form-field>
               <mat-card-actions>
               <button mat-raised-button color="primary" type="submit" [disabled]="!register.valid">Register</button>
-              <button mat-raised-button color="warn" type="reset">Reset</button>
+              <button mat-raised-button color="warn" type="reset" [disabled]="!r.email.touched && !r.userName.touched && !r.password.touched">Reset</button>
             </mat-card-actions>
             </form>
 
